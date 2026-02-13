@@ -1,1 +1,1 @@
-# MovieBuddy: Personalized Movie Recommendations
+# Movie Buddy: Personalized Movie Recommendations
