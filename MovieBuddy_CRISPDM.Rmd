@@ -1,0 +1,41 @@
+---
+title: "MovieBuddy: Personalized Movie Recommendations"
+author: "CRISP-DM Insights"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+    theme: cosmo
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+options(scipen = 999)
+
+# Core
+library(tidyverse)
+library(Matrix)
+
+# Recommenders
+library(recommenderlab)  # UBCF / IBCF + evaluation
+library(recosystem)      # Matrix factorization (explicit feedback)
+
+# Nice tables
+library(DT)
+```
+
+# **Business Understanding**
+Goal: Build a recommender system that provides Top-N movie recommendations for a given userId using:
+
+- Baseline (popularity + average rating)
+- Item-based collaborative filtering
+- User-based collaborative filtering
+- Matrix factorization
+
+Success criteria
+
+- Practical: returns relevant Top-N unseen items for a user quickly.
+- Technical: models evaluated using:
+  - rating prediction: RMSE / MAE
+  - Top-N ranking: Precision / Recall @ N (where applicable)
